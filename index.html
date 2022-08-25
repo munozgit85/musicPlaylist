@@ -12,40 +12,42 @@
 <body class="hero background is-fullheight">
     <header>
         <h1 class="title has-text-white is-size-1 has-text-centered"> Music Playlist</h1>
-
     </header>
 
-    <main class="hero-body">
-        <section>
+    <main>
+        <section class="hero-body" id="form">
             <div>
-                <input class="user-input" placeholder="Band/Artist Name" />
-                <button class="button is-normal is-responsive" type="submit" id="submitBtn">Get Playlist</button>
-                <button class="button is-small" id="clearBtn">Clear</button>
+                <div class="form">
+                    <input class="input is-medium is-responsive" placeholder="Band/Artist Name" />
+                    <button class="button is-normal is-responsive" type="submit" id="submitBtn">Get Playlist</button>
+                    <button class="button is-small is-responsive" id="clearBtn">Clear</button>
+                </div>
             </div>
+
         </section>
 
-    </main>
+        <section class="list-container">
+            <div>
+                <ul class= "box">
+                    <li>music</li>
+                    <li>hello</li>
+                </ul>
 
-    <aside class="list-container">
-        <div>
-            <ul class= "box">
-                <li>music</li>
-                <li>hello</li>
-            </ul>
+            </div>
+        </section>
+    </main> 
 
+    <footer class="footer has-background-dark">
+        <div class="content has-text-centered has-text-white">
+          <p>
+            <strong class="has-text-white">Music Playlist</strong> by <a href="https://github.com/munozgit85">Racquel</a>,<a href="https://github.com/PivotalSaint"> Jesse</a>, and <a href="https://github.com/chazgraham">Chaz</a> The source code is located at
+            <a href="https://github.com/munozgit85/musicPlaylist">GitHub</a>.
+          </p>
         </div>
-    </aside>
+      </footer>
 
-    <footer>
-        <h3 class="contributor">
-            Contribution By
-        </h3>
-        <p class="coder-name">
-            Racquel, Jesse, Chaz
-        </p>
-        <p class="git-link"> <a href="https://github.com/munozgit85/musicPlaylist">Git Hub</p>
-    </footer>
     <script src="./assets/script.js"></script>
+
 </body>
 
 </html>
