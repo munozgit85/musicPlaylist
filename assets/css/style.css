@@ -1,0 +1,11 @@
+body {
+background-image: url("../images/wallp.jpeg");
+background-size:cover;
+display:flex;
+flex:auto;
+}
+
+.list-container {
+display:inline;
+
+}
