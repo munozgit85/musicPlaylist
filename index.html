@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylecheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
     <link rel="stylesheet" href="./assets/style.css" />
     <title>Music Playlist</title>
-</head>
-<body>
+
+<body class="hero background is-fullheight">
     <header>
-        <h1 class="title">Music Playelist</h1>
+        <h1 class="title has-text-white is-size-1 has-text-centered"> Music Playlist</h1>
+
     </header>
 
-    <main class="container">
+    <main class="hero-body">
         <section>
             <div>
                 <input class="user-input" placeholder="Band/Artist Name" />
-                <button class="btn" type="submit" id="submitBtn">Get Playlist</button>
-                <button class="btn" id="clearBtn">Clear</button>
+                <button class="button is-normal is-responsive" type="submit" id="submitBtn">Get Playlist</button>
+                <button class="button is-small" id="clearBtn">Clear</button>
             </div>
         </section>
-        <section>
-            <div>
-                <ul class="song-container"></ul>
-            </div>
-        </section>
+
     </main>
+
+    <aside class="list-container">
+        <div>
+            <ul class= "box">
+                <li>music</li>
+                <li>hello</li>
+            </ul>
+
+        </div>
+    </aside>
 
     <footer>
         <h3 class="contributor">
@@ -39,4 +47,5 @@
     </footer>
     <script src="./assets/script.js"></script>
 </body>
+
 </html>
