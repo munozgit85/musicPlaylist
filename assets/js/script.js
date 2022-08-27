@@ -14,6 +14,7 @@ var formSubmitHandler = function(event) {
     getUserRepos(username);
 
     // clear old content
+    repoContainerEl.textContent = "";
     nameInputEl.value = "";
   } else {
     alert("Please valid artist/band name");
@@ -21,10 +22,11 @@ var formSubmitHandler = function(event) {
 };
 
 
-var getUserRepos = function(response) {
+var getUserRepos = function(artists) {
   // format the github api url
-  var apiUrl = "https://api.napster.com//v2.2/artists/Art.28463069/tracks/top?limit=10&offset=5&apikey=MWVlYWFlNDQtMzc5NS00M2U3LWI3MTktNTUxMzU3OGY1N2E1";
-  console.log(response);
+ 
+  var apiUrl = " https://api.mixcloud.com/search/?q=" + nameInputEl + "&type=cloudcast";
+ 
 
   // make a get request to url
   fetch(apiUrl)
@@ -34,7 +36,7 @@ var getUserRepos = function(response) {
         console.log(response);
         response.json().then(function(data) {
           console.log(data);
-          displayRepos(response);
+          displayRepos(data,artists);
         });
       } else {
         alert('Artist Not Found');
@@ -45,31 +47,45 @@ var getUserRepos = function(response) {
     });
 };
 
-var displayRepos = function(tracks) {
+var displayRepos = function(tracks, SearchTerm) {
     // check if api returned any repos
     if (tracks.length === 0) {
       repoContainerEl.textContent = "No playlist found.";
       return;
     }
   
-    repoSearchTerm.textContent = tracks;
+    repoSearchTerm.textContent = SearchTerm;
   
     // loop over repos
     for (var i = 0; i < tracks.length; i++) {
       // format repo name
-      var repoName = tracks.artistName[i] + "/" + tracks.albuminName[i];
+      var repoName = data[i].url + "/" + data[i].name;
 
-  
-      // selector to hold repository name
-      var titleEl = document.querySelector("#list-item");
-      titleEl.textContent = repoName;
-  
 
-  
-      // append container to the dom
-      repoContainerEl.appendChild(repoName);
-    }
-  };
-  
+    // create a link for each repo
+    var repoEl = document.createElement("a");
+    repoEl.classList = "list-item flex-row justify-space-between align-center";
+    repoEl.setAttribute("href", "./single-repo.html?repo=" + repoName);
+
+    // create a span element to hold repository name
+    var titleEl = document.createElement("span");
+    titleEl.textContent = repoName;
+
+    // append to container
+    repoEl.appendChild(titleEl);
+
+    // create a status element
+    var statusEl = document.createElement("span");
+    statusEl.classList = "flex-row align-center";
+
+
+    // append to container
+    repoEl.appendChild(statusEl);
+
+    // append container to the dom
+    repoContainerEl.appendChild(repoEl);
+  }
+};
+
   // add event listeners to form and button container//
   userFormEl.addEventListener("submit", formSubmitHandler);
